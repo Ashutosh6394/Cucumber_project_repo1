@@ -6,4 +6,4 @@ COPY . .
 
 RUN mvn clean test
 
-CMD ["mvn","test"]
+CMD ["mvn", "test"]

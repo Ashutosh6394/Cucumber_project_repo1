@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/Ashutosh6394/Cucumber_project_repo1.git'
+            }
+        }
+
+        stage('Build & Test') {
+            steps {
+                dir('Cucumber_BBD') {
+                    bat 'mvn clean test'
+                }
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                dir('Cucumber_BBD') {
+                    bat 'docker build -t cucumber-app .'
+                }
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                bat 'docker run --rm cucumber-app'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "BUILD SUCCESS"
+        }
+        failure {
+            echo "BUILD FAILED"
+        }
+    }
+}

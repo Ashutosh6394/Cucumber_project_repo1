@@ -12,30 +12,10 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
     </properties>
-    
 
     <dependencies>
-    
-    	<dependency>
-    		<groupId>io.cucumber</groupId>
-    		<artifactId>cucumber-java</artifactId>
-    		<version>7.18.1</version>
-		</dependency>
 
-		<dependency>
-    		<groupId>io.cucumber</groupId>
-    		<artifactId>cucumber-junit</artifactId>
-    		<version>7.18.1</version>
-    		<scope>test</scope>
-		</dependency>
-
-		<dependency>
-    		<groupId>junit</groupId>
-    		<artifactId>junit</artifactId>
-    		<version>4.13.2</version>
-    		<scope>test</scope>
-		</dependency>
-
+        <!-- CUCUMBER -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -45,35 +25,29 @@
 
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
+            <artifactId>cucumber-junit</artifactId>
             <version>7.34.3</version>
             <scope>test</scope>
         </dependency>
 
+        <!-- JUNIT -->
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.12.0</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.44.0</version>
-        </dependency>
-        
-        <dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>rest-assured</artifactId>
-    <version>5.5.0</version>
-</dependency>
-<dependency>
-        <groupId>io.rest-assured</groupId>
-        <artifactId>json-schema-validator</artifactId>
-        <version>5.5.0</version>
-    </dependency>
-
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.4</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
